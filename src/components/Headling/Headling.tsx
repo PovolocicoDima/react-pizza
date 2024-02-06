@@ -1,5 +1,6 @@
-import styles from './Headling.module.css';
 import cn from 'classnames';
+
+import styles from './Headling.module.css';
 import { HeadlingProps } from './Headling.props';
 
 function Headling({ children, className, ...props }: HeadlingProps) {

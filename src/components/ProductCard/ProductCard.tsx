@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+
 import styles from './ProductCard.module.css';
 import { ProductCardProps } from './ProductCard.props';
 
 function ProductCard(props: ProductCardProps) {
 	return (
-		<Link to={`/product/${props.id}`} className={styles['link']}>
+		<Link className={styles['link']} to={`/product/${props.id}`}>
 			<div className={styles['card']}>
 				<div className={styles['head']} style={{ backgroundImage: `url('${props.image}')` }}>
 					<div className={styles['price']}>
@@ -12,11 +13,11 @@ function ProductCard(props: ProductCardProps) {
 						<span className={styles['currency']}>₽</span>
 					</div>
 					<button className={styles['add-to-cart']}>
-						<img src="/cart-button-icon.svg" alt="Добавить в корзину" />
+						<img alt="Добавить в корзину" src="/cart-button-icon.svg" />
 					</button>
 					<div className={styles['rating']}>
 						{props.rating}&nbsp;
-						<img src="/star-icon.svg" alt="Иконка звезды" />
+						<img alt="Иконка звезды" src="/star-icon.svg" />
 					</div>
 				</div>
 				<div className={styles['footer']}>
