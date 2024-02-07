@@ -1,16 +1,19 @@
 import { createBrowserRouter, RouterProvider, defer } from 'react-router-dom';
 import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import axios from 'axios';
 
 import { Error as ErropPage } from './pages/Error/Error.tsx';
 import { AuthLayout } from './layout/Auth/AuthLayout.tsx';
 import { Register } from './pages/Register/Register.tsx';
+import { RequireAuth } from './helpers/RequireAuth.tsx';
 import { Product } from './pages/Product/Product.tsx';
 import { Layout } from './layout/Menu/Layout.tsx';
 import { Login } from './pages/Login/Login.tsx';
 import { Cart } from './pages/Cart/Cart.tsx';
 import { PREFIX } from './helpers/API.ts';
+import { store } from './store/store.ts';
 import './index.css';
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -42,7 +45,7 @@ const router = createBrowserRouter([
 				element: <Product />
 			}
 		],
-		element: <Layout />,
+		element: <RequireAuth><Layout /></RequireAuth>,
 		path: '/'
 	},
 	{
@@ -66,6 +69,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<Provider store={store}>
+			<RouterProvider router={router} />
+		</Provider>
 	</React.StrictMode>
 );
