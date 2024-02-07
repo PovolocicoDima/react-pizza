@@ -1,11 +1,14 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { FormEvent, useState } from 'react';
 import axios, { AxiosError } from 'axios';
+import { useDispatch } from 'react-redux';
 
 import { LoginResponse } from '../../interfaces/auth.interface';
 import Headling from '../../components/Headling/Headling';
+import { userActions } from '../../store/user.slice';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
+import { AppDispath } from '../../store/store';
 import { PREFIX } from '../../helpers/API';
 import styles from './Login.module.css';
 
@@ -21,6 +24,7 @@ export type LoginForm = {
 export function Login() {
 	const [error, setError] = useState<string | null>();
 	const navigate = useNavigate();
+	const dispatch = useDispatch<AppDispath>();
 
 	const submit = async (e: FormEvent) => {
 		e.preventDefault();
@@ -36,7 +40,7 @@ export function Login() {
 				password,
 				email
 			});
-			localStorage.setItem('jwt', data.access_token);
+			dispatch(userActions.addJwt(data.access_token));
 			navigate('/');
 		} catch (e) {
 			if (e instanceof AxiosError) {
