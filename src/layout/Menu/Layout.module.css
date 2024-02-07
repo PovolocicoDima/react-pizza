@@ -40,10 +40,6 @@
 	color: var(--primary-color);
 }
 
-.inactive {
-	color: green;
-}
-
 .user {
 	margin-bottom: 46px;
 }

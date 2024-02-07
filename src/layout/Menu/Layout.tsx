@@ -18,11 +18,11 @@ export function Layout() {
 					[styles.active]: isActive
 				})} to='/'>
 					<img src="/menu-icon.svg" alt="Иконка меню" />
-					'Меню</NavLink>
+					Меню</NavLink>
 				<NavLink className={({ isActive }) => cn(styles['link'], {
 					[styles.active]: isActive
 				})} to='/cart'>
-					<img alt="Иконка корзины" src="/cart-icon.svg" />Корзина</NavLink>
+					<img src="/cart-icon.svg" alt="Иконка корзины" />Корзина</NavLink>
 			</div>
 			<Button className={styles['exit']}>
 				<img src="/exit-icon.svg" alt="Иконка выхода" />

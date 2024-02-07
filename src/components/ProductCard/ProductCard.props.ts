@@ -3,7 +3,6 @@ export interface ProductCardProps {
 	rating: number;
 	image: string;
 	price: number;
-	title?: string
 	name: string;
 	id: number;
 }

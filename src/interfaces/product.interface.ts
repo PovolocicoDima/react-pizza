@@ -1,8 +1,8 @@
-export interface IProduct {
+export interface Product {
 	ingredients: string[]
 	rating: number
-	image: string
 	price: number
+	image: string
 	name: string
 	id: number
 }
