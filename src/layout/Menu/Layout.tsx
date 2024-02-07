@@ -1,5 +1,5 @@
-import cn from 'classnames';
 import { NavLink, Outlet } from 'react-router-dom';
+import cn from 'classnames';
 
 import Button from '../../components/Button/Button';
 import styles from './Layout.module.css';
@@ -9,7 +9,7 @@ export function Layout() {
 	return <div className={styles['layout']}>
 		<div className={styles['sidebar']}>
 			<div className={styles['user']}>
-				<img alt="Аватар пользователя" className={styles['avatar']} src="/avatar.png" />
+				<img className={styles['avatar']} alt="Аватар пользователя" src="/avatar.png" />
 				<div className={styles['name']}>Антон Ларичев</div>
 				<div className={styles['email']}>alari@ya.ru</div>
 			</div>
@@ -17,7 +17,7 @@ export function Layout() {
 				<NavLink className={({ isActive }) => cn(styles['link'], {
 					[styles.active]: isActive
 				})} to='/'>
-					<img alt="Иконка меню" src="/menu-icon.svg" />
+					<img src="/menu-icon.svg" alt="Иконка меню" />
 					'Меню</NavLink>
 				<NavLink className={({ isActive }) => cn(styles['link'], {
 					[styles.active]: isActive
@@ -25,7 +25,7 @@ export function Layout() {
 					<img alt="Иконка корзины" src="/cart-icon.svg" />Корзина</NavLink>
 			</div>
 			<Button className={styles['exit']}>
-				<img alt="Иконка выхода" src="/exit-icon.svg" />
+				<img src="/exit-icon.svg" alt="Иконка выхода" />
 				Выход
 			</Button>
 		</div>

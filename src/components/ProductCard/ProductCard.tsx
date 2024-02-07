@@ -1,23 +1,23 @@
 import { Link } from 'react-router-dom';
 
-import styles from './ProductCard.module.css';
 import { ProductCardProps } from './ProductCard.props';
+import styles from './ProductCard.module.css';
 
 function ProductCard(props: ProductCardProps) {
 	return (
-		<Link className={styles['link']} to={`/product/${props.id}`}>
+		<Link to={`/product/${props.id}`} className={styles['link']}>
 			<div className={styles['card']}>
-				<div className={styles['head']} style={{ backgroundImage: `url('${props.image}')` }}>
+				<div style={{ backgroundImage: `url('${props.image}')` }} className={styles['head']}>
 					<div className={styles['price']}>
 						{props.price}&nbsp;
 						<span className={styles['currency']}>₽</span>
 					</div>
 					<button className={styles['add-to-cart']}>
-						<img alt="Добавить в корзину" src="/cart-button-icon.svg" />
+						<img src="/cart-button-icon.svg" alt="Добавить в корзину" />
 					</button>
 					<div className={styles['rating']}>
 						{props.rating}&nbsp;
-						<img alt="Иконка звезды" src="/star-icon.svg" />
+						<img src="/star-icon.svg" alt="Иконка звезды" />
 					</div>
 				</div>
 				<div className={styles['footer']}>

@@ -5,12 +5,12 @@ function MenuList({products}: MenuListProps) {
 	return products.map(p => (
 		<ProductCard
 			description={p.ingredients.join(', ')}
-			id={p.id}
-			image={p.image}
-			key={p.id}
-			name={p.name}
-			price={p.price}
 			rating={p.rating}
+			image={p.image}
+			price={p.price}
+			name={p.name}
+			key={p.id}
+			id={p.id}
 		/>
 	));
 }
